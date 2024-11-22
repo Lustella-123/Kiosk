@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6d0b1a42-92bc-407d-a166-9d29c71cab68" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/ch2_kiosk/src/Lv4,5/Kiosk.java" beforeDir="false" afterPath="$PROJECT_DIR$/ch2_kiosk/src/Lv4/Kiosk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch2_kiosk/src/Lv4,5/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ch2_kiosk/src/Lv4/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch2_kiosk/src/Lv4,5/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/ch2_kiosk/src/Lv4/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch2_kiosk/src/Lv4,5/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/ch2_kiosk/src/Lv4/MenuItem.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2p9hhsT08hxW5L9upIbO75r1s3S" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/tella/OneDrive/바탕 화면/Programmer/project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.rainbow.brackets.root",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Kiosk" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Kiosk" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6d0b1a42-92bc-407d-a166-9d29c71cab68" name="Changes" comment="" />
+      <created>1732184321428</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732184321428</updated>
+      <workItem from="1732184323068" duration="1571000" />
+      <workItem from="1732188748031" duration="52000" />
+      <workItem from="1732188807507" duration="262000" />
+      <workItem from="1732189076717" duration="310000" />
+      <workItem from="1732189394643" duration="29000" />
+      <workItem from="1732189427814" duration="1000" />
+      <workItem from="1732189441271" duration="81000" />
+      <workItem from="1732189533481" duration="115000" />
+      <workItem from="1732189657178" duration="139000" />
+      <workItem from="1732189802767" duration="97000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
