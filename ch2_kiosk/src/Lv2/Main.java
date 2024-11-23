@@ -1,6 +1,7 @@
 package Lv2;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,52 +9,43 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // 리스트에 메뉴 추가
-        List<MenuItem> burger = new ArrayList<>();
-        Menu menu = new Menu();
-        burger.add(menu.getShackBurger());
-        burger.add(menu.getSmokeShack());
-        burger.add(menu.getCheeseBurger());
-        burger.add(menu.getHamburger());
+        // List 선언 및 초기화
+        List<MenuItem> menuList = new ArrayList<>();
+        // add 함수를 통해 new MenuItem(이름, 가격, 설명) List에 삽입
+        menuList.add(new MenuItem("ShackBurger  ", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거"));
+        menuList.add(new MenuItem("SmokeShack   ", 8.9, "베이컨, 체리 페퍼이 쉑소스가 토핑된 치즈버거"));
+        menuList.add(new MenuItem("cheeseburger ", 6.9, "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거"));
+        menuList.add(new MenuItem("Hamburger    ", 5.4, "비프패티를 기반으로 야채가 들어간 기본버거"));
 
+        // Scanner 선언
         Scanner scanner = new Scanner(System.in);
-        Kiosk kiosk = new Kiosk();
-        int i = 1; // 메뉴 앞 숫자
 
-        // 메뉴 출력
+        // 반복문을 활용해 List 안에 있는 MenuItem을 하나씩 출력
         System.out.println("[ SHAKESHACK MENU ]");
-        for (MenuItem b : burger) { // burger List를 하나씩 꺼냄
-            System.out.println(i + ". " + b.name + " / W " + b.price + " / " + b.description);
-            i++; // 메뉴 앞 숫자 1씩 증가
+        int i = 1;
+        for (MenuItem m : menuList) {
+            System.out.println(i + ". " + m.name + "| W " + m.price + " | " + m.description);
+            i++;
         }
         System.out.println("0. 종료");
 
-        boolean isValid = false;
-        while (!isValid) { // 유효한 숫자 입력할 때까지 반복
+        // 입력
+        while (true) {
             try {
-                int selectBurger = scanner.nextInt();
-                switch (selectBurger) {
-                    case 0: // 0 입력시 종료
-                        System.out.println("프로그램을 종료합니다.");
-                        isValid = true;
-                        break;
-                    default: // burger 길이에 따른 유동적인 조건문
-                        if (selectBurger > 0 && selectBurger <= burger.size()) {
-                            MenuItem selectedBurger = burger.get(selectBurger - 1);
-                            System.out.println("선택한 메뉴 : " + selectedBurger.name + ", " + selectedBurger.price + ", " + selectedBurger.description);
-                            isValid = true;
-                        } else {
-                            System.out.println("잘못된 선택지입니다. 다시 입력해주세요.");
-                        }
-                        break;
+                int burgerMenu = scanner.nextInt(); // 숫자를 입력 받기
+                if (burgerMenu == 0) { // 프로그램을 종료
+                    System.out.println("프로그램을 종료합니다.");
+                    break;
+                } else if (burgerMenu >= 1 && burgerMenu <= 4) { // 입력된 숫자에 따른 처리, // 선택한 메뉴 : 이름, 가격, 설명
+                    System.out.println("선택한 메뉴 : " + menuList.get(burgerMenu-1).name + "| W " + menuList.get(burgerMenu-1).price + " | " + menuList.get(burgerMenu-1).description);
+                    break;
+                } else { // 예외처리
+                    System.out.println("잘못된 선택지입니다.");
                 }
-            } catch (Exception e) { // 숫자가 아닌 경우 경고
-                System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
-                scanner.nextLine();
+            } catch (InputMismatchException e) { // 예외처리
+                System.out.println("정수를 입력해주세요.");
+                scanner.next(); // 버퍼에 남은 값 제거
             }
         }
-
-        kiosk.startKiosk();
-
     }
 }
