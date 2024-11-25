@@ -1,4 +1,4 @@
-package Lv4;
+package basic_Lv4;
 
 import java.util.InputMismatchException;
 import java.util.List;
