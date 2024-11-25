@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Kiosk {
     private List<Menu> menus;
-    private List<MenuItem> shoppingCart = new ArrayList<>();
+    private List<MenuItem<Double,String>> shoppingCart = new ArrayList<>();
 
     public Kiosk(List<Menu> menus) {
         this.menus = menus;
@@ -51,7 +53,7 @@ public class Kiosk {
                             System.out.println("뒤로가기");
                             break;
                         } else if (subChoice > 0 && subChoice <= menus.get(choice - 1).getMenuItems().size()) {
-                            MenuItem selectedItem = menus.get(choice - 1).getMenuItems().get(subChoice - 1);
+                            MenuItem<Double, String> selectedItem = menus.get(choice - 1).getMenuItems().get(subChoice - 1);
                             System.out.println("선택한 메뉴: " + selectedItem.getName() + " | W " + selectedItem.getPrice() + " | " + selectedItem.getDescription());
                             // 장바구니 추가
                             System.out.println();
@@ -85,7 +87,7 @@ public class Kiosk {
                             System.out.println();
                             System.out.println("[ Orders ]");
                             for (int i = 0; i < shoppingCart.size(); i++) {
-                                System.out.println(shoppingCart.get(i).getName() + " | W " + shoppingCart.get(i).getPrice() + " | " + shoppingCart.get(i).getDescription());
+                                System.out.println((i+1) + ". " + shoppingCart.get(i).getName() + " | W " + shoppingCart.get(i).getPrice() + " | " + shoppingCart.get(i).getDescription());
                                 totalPrice += shoppingCart.get(i).getPrice();
                             }
                             System.out.println();
@@ -93,7 +95,7 @@ public class Kiosk {
                             System.out.println("W " + totalPrice);
 
                             // 최종 주문 기능
-                            System.out.println("1. 주문      2. 메뉴판");
+                            System.out.println("1. 주문      2. 제거      3. 메뉴판");
                             while (true) {
                                 try {
                                     int order = scanner.nextInt();
@@ -131,7 +133,27 @@ public class Kiosk {
                                         exit = true;
                                         orderBreak = true;
                                         break;
-                                    } else if (order == 2) {
+                                    } else if (order == 2) { // 장바구니 제거 기능 추가
+                                        try {
+                                            System.out.println("장바구니에서 제거할 항목 번호를 입력해주세요.");
+                                            int itemToRemove = scanner.nextInt();
+                                            if (itemToRemove > 0 && itemToRemove <= shoppingCart.size()) {
+                                                shoppingCart = IntStream.range(0, shoppingCart.size())
+                                                        .filter(i -> i != (itemToRemove - 1)) // 제거할 항목의 인덱스를 제외(글자로 제외하기 곤란)
+                                                        .mapToObj(shoppingCart::get)         // 남은 항목을 스트림으로 변환
+                                                        .collect(Collectors.toCollection(ArrayList::new)); // ArrayList로 변환
+                                                System.out.println("선택 항목이 장바구니에서 제거되었습니다.");
+                                                orderBreak = true;
+                                            } else {
+                                                System.out.println("잘못된 번호입니다.");
+                                            }
+                                        } catch (InputMismatchException e) {
+                                            System.out.println("숫자를 입력해주세요.");
+                                            scanner.next(); // 잘못된 입력 제거
+                                        }
+                                        break;
+                                    }
+                                    else if (order == 3) {
                                         System.out.println();
                                         orderBreak = true;
                                         break;
@@ -145,6 +167,10 @@ public class Kiosk {
                             if (orderBreak) {
                                 break;
                             }
+                        } else if (choice == 5) {
+                            System.out.println("프로그램을 종료합니다.");
+                            exit = true;
+                            break;
                         }
                     }else {
                         System.out.println("잘못된 입력입니다.");

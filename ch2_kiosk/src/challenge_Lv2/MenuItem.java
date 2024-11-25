@@ -1,27 +1,26 @@
 package challenge_Lv2;
 
-public class MenuItem {
-    private String name;
-    private double price;
-    private String description;
+public class MenuItem<T, S> { // 제네릭으로 교체
+    private final S name;
+    private final T price;
+    private final S description;
 
-    public MenuItem(String name, double price, String description) {
+    public MenuItem(S name, T price, S description) {
         this.name = name;
         this.price = price;
         this.description = description;
     }
 
     // Getter and Setter
-    public String getName() {
+    public S getName() {
         return name;
     }
 
-    public double getPrice() {
+    public T getPrice() {
         return price;
     }
 
-
-    public String getDescription() {
+    public S getDescription() {
         return description;
     }
 }

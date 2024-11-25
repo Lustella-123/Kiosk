@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Menu {
     private String categoryName;
-    private List<MenuItem> menuItems;
+    private List<MenuItem<Double, String>> menuItems;
 
     public Menu(String categoryName) {
         this.categoryName = categoryName;
@@ -16,20 +16,19 @@ public class Menu {
         return categoryName;
     }
 
-    public List<MenuItem> getMenuItems() {
+    public List<MenuItem<Double, String>> getMenuItems() {
         return menuItems;
     }
 
-    public void addMenuItem(MenuItem item) {
+    public void addMenuItem(MenuItem<Double, String> item) {
         menuItems.add(item);
     }
 
     public void displayMenu() {
         System.out.println("[ " + categoryName.toUpperCase() + " MENU ]");
-        for (int i = 0; i < menuItems.size(); i++) {
-            MenuItem item = menuItems.get(i);
-            System.out.println((i + 1) + ". " + item.getName() + " | W " + item.getPrice() + " | " + item.getDescription());
-        }
+        menuItems.stream() // for문 스트림으로 교체
+                .forEach(item -> System.out.println((menuItems.indexOf(item) + 1) + ". "
+                        + item.getName() + " | W " + item.getPrice() + " | " + item.getDescription()));
         System.out.println("0. 뒤로가기");
     }
 }
