@@ -15,6 +15,7 @@ public class Kiosk {
         // 스캐너 선언
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
+
         // 반복문 시작
         while (!exit) {
             // 메인메뉴 화면
