@@ -10,6 +10,7 @@ public enum Discount {
     }
 
     public double discount (double price) {
+
         return price * (100 - discountPercent) / 100;
     }
 }
